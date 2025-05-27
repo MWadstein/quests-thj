@@ -12,9 +12,9 @@ jobs:
     - name: Deploy to Test server
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.STAGING_HOST }}
-        username: ${{ secrets.STAGING_USER }}
-        key: ${{ secrets.STAGING_SSH_KEY }}
+        host: ${{ secrets.N_THJ_TEST_HOST }}
+        username: ${{ secrets.N_THJ_TEST_USER }}
+        key: ${{ secrets.N_THJ_TEST_KEY }}
         script: |
           cd ~/server/quests/
           git fetch origin
