@@ -15,6 +15,7 @@ jobs:
         host: ${{ secrets.N_THJ_TEST_HOST }}
         username: ${{ secrets.N_THJ_TEST_USER }}
         key: ${{ secrets.N_THJ_TEST_KEY }}
+        port: 2222
         script: |
           cd ~/server/quests/
           git fetch origin
