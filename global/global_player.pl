@@ -380,6 +380,7 @@ sub EVENT_ITEM_CLICK_CAST_CLIENT {
 
     if ($spell_id == 36878) {
         if (plugin::HasTitle($item_id)) {
+            $client->Message(289, "You already have that title, and cannot claim it again.");
             return 1;
         }
         plugin::AddTitleFlag($item_id, $client);
