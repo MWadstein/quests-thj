@@ -61,3 +61,28 @@ sub EnableTitles {
     }
 }
 
+sub HasTitle {
+    my $title_id = shift;
+    my $client = shift || plugin::val('$client');
+
+    # First check if the title is currently enabled/active
+    if (quest::checktitle($title_id)) {
+        return 1;
+    }
+
+    # Check account-wide titles (if not seasonal)
+    if (!plugin::IsSeasonal($client)) {
+        my @account_titles = plugin::DeserializeList(quest::get_data($client->AccountID() . "-titles-unlocked"));
+        if (grep { $_ == $title_id } @account_titles) {
+            return 1;
+        }
+    }
+
+    # Check character-specific titles
+    my @character_titles = plugin::DeserializeList($client->GetBucket("titles-unlocked"));
+    if (grep { $_ == $title_id } @character_titles) {
+        return 1;
+    }
+
+    return 0;
+}
