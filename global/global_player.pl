@@ -16,6 +16,9 @@ sub EVENT_SIGNAL {
 }
 
 sub EVENT_ENTERZONE {
+    my $default_size = $client->GetDefaultRaceSize();
+    $client->ChangeSize($default_size);
+
 	plugin::CommonCharacterUpdate($client);
 
 	if (!plugin::is_eligible_for_zone($client, $zonesn)) {
