@@ -79,7 +79,7 @@ function event_say(e)
 					)
 				)
 			end
-		elseif (e.message:findi("i seek knowledge") ) then
+		elseif (e.message:findi("knowledge") ) then
 			local marks = { 31796, 31842, 31844, 31845, 31846 , 31960 }
 			local has_six = 1;
 			for k,v in pairs(marks) do

@@ -69,7 +69,7 @@ function event_say(e)
 					)
 				)
 			end
-		elseif e.message:findi("I seek knowledge") then
+		elseif e.message:findi("knowledge") then
 			if (
 				e.other:HasItem(31796) and
 				e.other:HasItem(31842) and
