@@ -49,7 +49,7 @@ function event_timer(e)
 			wave_final(e);
 		end
 		eq.stop_timer(e.timer);
-		eq.set_timer('wave', 5 * 60 * 1000);
+		eq.set_timer('wave', 2 * 60 * 1000);
 	end
 end
 
