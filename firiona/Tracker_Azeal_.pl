@@ -8,7 +8,7 @@ sub EVENT_SPAWN {
 
 sub EVENT_ITEM {
   if (plugin::check_handin(\%itemcount, 12691 => 1)) { #Test of Betrayal (Greenmist Quest 5/8)
-    quest::emote("begins to pull his face off.. it is a disguise!! 'Aha!! You have made it!! I cannot see well in this disguise, but I thought I smelled you. I have [news of the Charasis tome].'");
+    quest::emote("begins to pull his face off.. it is a disguise!! 'Aha!! You have made it!! I cannot see well in this disguise, but I thought I smelled you. I have [" . quest::saylink("news of the Charasis tome", false, "news of the Charasis tome") . "].'");
     quest::ding();
     my $x = $npc->GetX();
     my $y = $npc->GetY();
