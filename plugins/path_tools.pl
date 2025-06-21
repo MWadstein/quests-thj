@@ -8,58 +8,6 @@
 # The LoS check basically looks from your NPC to an imaginary NPC of the LoSMobSize size to see if LoS exists
 
 sub RandomRoam {
-
-	my $npc = plugin::val('$npc');
-	my $MaxXVariance = $_[0];
-	my $MaxYVariance = $_[1];
-	my $MaxZVariance = $_[2];
-	my $LoSMobSize = $_[3];
-
-	#Set the Max Z Variance to 15 if no 3rd argument is set
-	if(!$MaxZVariance){
-		$MaxZVariance = 15;
-	}
-	
-	#Set the LoS Check Mob Size to 5 if no 4th argument is set
-	if(!$LoSMobSize){
-		$LoSMobSize = 5;
-	}
-	
-	# Don't try to roam if already engaged in combat!
-	if ($npc->IsEngaged() != 1) {
-		#Get needed Locs
-		my $CurX = $npc->GetX();
-		my $CurY = $npc->GetY();
-		#my $CurZ = $npc->GetZ();	#Not currently required by this plugin
-		my $OrigX = $npc->GetSpawnPointX();
-		my $OrigY = $npc->GetSpawnPointY();
-		my $OrigZ = $npc->GetSpawnPointZ();
-		my $GuardX = $npc->GetGuardPointX();
-		my $GuardY = $npc->GetGuardPointY();
-
-		if ($CurX == $GuardX && $CurY == $GuardY) {	#If the NPC has finished walking to the previous given Loc
-
-			#Get a random X and Y within the set range
-			my $RandomX = int(rand($MaxXVariance - 1)) + 1;
-			my $RandomY = int(rand($MaxYVariance - 1)) + 1;
-			my $PosX = $OrigX + $RandomX;
-			my $PosY = $OrigY + $RandomY;
-			my $NegX = $OrigX - $RandomX;
-			my $NegY = $OrigY - $RandomY;
-			my $NewX = quest::ChooseRandom($PosX, $NegX);
-			my $NewY = quest::ChooseRandom($PosY, $NegY);
-			
-			#Check for LoS and Z issues before moving to the new Loc
-			my $NewZ = $npc->FindGroundZ($NewX,$NewY, 5) + 1;	#Add 1 to the new Z to prevent hopping issue when they arrive
-			if ($NewZ > -999999 && $OrigZ > ($NewZ - $MaxZVariance + 1) && $OrigZ < ($NewZ + $MaxZVariance - 1)) {
-				my $LoS_Check = $npc->CheckLoSToLoc($NewX, $NewY, $NewZ, $LoSMobSize);
-				#Check LoS to the new random Loc
-				if ($LoS_Check) {
-					quest::moveto($NewX, $NewY, $NewZ, -1, 1);
-				}
-			}
-		}
-	}
 }
 
 #Usage: plugin::StraightPath(MaxXVariance, MaxYVariance);
