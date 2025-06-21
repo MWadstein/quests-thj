@@ -20,7 +20,7 @@ sub EVENT_ITEM {
   while(quest::handin({ 19203 => 1 }) || # Death Pact
     quest::handin({ 19205 => 1 }) || # Upheaval
     quest::handin({ 19209 => 1 }) || # Yaulp IV
-    quest::handin({ 19209 => 1 }) || # Reckoning
+    quest::handin({ 19212 => 1 }) || # Reckoning
     quest::handin({ 19233 => 1 })) { # Upheaval
         quest::say("Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
         quest::summonitem(quest::ChooseRandom(19210,19224,19420,19206)); # Item(s): Spell: Unswerving Hammer (19210), Spell: Heroic Bond (19224), Spell: Sunskin (19420), Spell: Word of Vigor (19206)
