@@ -23,17 +23,17 @@ local event_stat_stages		= {
 function evt_bristlebane_spawn(e)
 	next_hp_event = 90;
 	eq.set_next_hp_event(next_hp_event);
-	eq.set_timer("despawn", 2 * 60 * 60 * 1000); -- 2 Hours
+--	eq.set_timer("despawn", 2 * 60 * 60 * 1000); -- 2 Hours
 end
 
 function evt_bristlebane_combat(e)
 	if e.joined then
 		eq.stop_timer("reset_event");
-		eq.pause_timer("despawn");
+--		eq.pause_timer("despawn");
 		eq.set_timer("aggrolink", 3 * 1000);
 	else
 		eq.set_timer("reset_event", 60 * 1000); -- 1 Minute Reset
-		eq.resume_timer("despawn");
+--		eq.resume_timer("despawn");
 		eq.stop_timer("aggrolink");
 	end
 end
@@ -62,10 +62,10 @@ function evt_bristlebane_hp(e)
 end
 
 function evt_bristlebane_timer(e)
-	if e.timer == "despawn" then
-		depop_all_event_mobs(e);
-		eq.depop();
-	elseif e.timer == "reset_event" then
+--	if e.timer == "despawn" then
+--		depop_all_event_mobs(e);
+--		eq.depop();
+	if e.timer == "reset_event" then
 		reset_event(e);
 	elseif e.timer == "aggrolink" then
 		local npc_list =  eq.get_entity_list():GetNPCList();
