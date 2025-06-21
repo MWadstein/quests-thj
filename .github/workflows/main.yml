@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches: 
-      - play_modes_new
+      - 'staging'
       - 'deploy/*'
   create:
     branches:
