@@ -1,4 +1,5 @@
-function event_spawn(e)
+--Disabling depop functionality to match other flag mobs throughout PoP and ensure uniformity of player experience - Twinkles
+--[[function event_spawn(e)
 	eq.set_timer("Depop", 900 * 1000) -- 15 Minutes
 end
 
@@ -7,7 +8,7 @@ function event_timer(e)
 		eq.stop_timer("Depop")
 		eq.depop()
 	end
-end
+end]]
 
 function event_say(e)
 	local agnarr_bucket = tonumber(e.other:GetAccountBucket("pop.flags.agnarr")) or 0
