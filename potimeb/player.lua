@@ -485,7 +485,7 @@ function event_say(e)
 				eq.spawn2(223213,0,0,175,-1205,5.0,385.5);
 			end
 			if not eq.is_npc_spawned({223214}) then
-				eq.spawn2(223214,0,0,175,-1205,5.0,385.5);
+				eq.spawn2(223214,0,0,-579,-1119,60.625,0);
 			end
 			e.self:Message(MT.Lime,"[Phase 7 Loading]");
 		elseif e.message:find("tb_reset") then
