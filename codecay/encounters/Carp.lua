@@ -69,7 +69,7 @@ function Add_Slay(e)
 	eq.spawn2(200066,0,0,392.19,142.16,-60.25,260.5):AddToHateList(e.self:GetHateRandom(),1); -- NPC: Reanimated_Reaver
 end
 
-function Avhi_Spawn(e)
+--[[function Avhi_Spawn(e) -- Disabling despawn logic to match other PoP THJ encounters - Twinkles
 	eq.set_timer("Avhi", 3600000);  -- set despawn timer of 1 hour
 end
 
@@ -123,7 +123,7 @@ function Avhi_Timer(e)
 		eq.depop_all(200035); -- Depop myself
 		eq.depop_all(200066); -- Depop any adds that were activated by event.
 	end
-end
+end]]
 
 function Avhi_Death(e)
 	eq.spawn2(200039,0,0,261.54,82.12,-70.25,4.5);  -- Spawn Bishop

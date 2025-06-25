@@ -1,4 +1,4 @@
-function event_spawn(e)
+--[[function event_spawn(e) -- Disabled flag mob despawn timer to behave similar to other PoP flag mobs - Twinkles
 	eq.set_timer("Depop", 1200 * 1000) -- 20 Minutes
 end
 
@@ -7,7 +7,7 @@ function event_timer(e)
 		eq.stop_timer("Depop")
 		eq.depop()
 	end
-end
+end]]
 
 function event_say(e)
 	if e.message:findi("Hail") then
