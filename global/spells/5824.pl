@@ -5,6 +5,12 @@ sub EVENT_SPELL_EFFECT_CLIENT {
     my $bind_loc = $client->GetBucket("baz_and_back_bind") || 'bazaar';
     my %locations;
 
+    if ($client->GetInventory()->HasItem(17899,1,2) > 1) {
+        $client->Message(13, "Trader's Satchels may not leave the Bazaar.");
+        $client->SendMarqueeMessage(13, "Trader's Satchels may not leave the Bazaar.");
+        return;
+    }
+
     # Define possible locations in zone 151 (Bazaar)
     my %baz_locations = (
         'safe_location' => [quest::GetZoneSafeX(151), quest::GetZoneSafeY(151), quest::GetZoneSafeZ(151), quest::GetZoneSafeHeading(151)],
