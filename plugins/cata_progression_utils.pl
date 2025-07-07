@@ -366,6 +366,10 @@ sub SetSubflag {
             if (plugin::IsSeasonal($client)) {
                 quest::set_data($client->AccountID() . "-progression-title-$stage", 1);
             }
+            
+            if ($stage eq 'RoK') {
+                $client->UnlockWaypoint("dreadlands");
+            }
 
             if ($stage eq 'SoV') {
                 $client->KeyRingAdd(20884);

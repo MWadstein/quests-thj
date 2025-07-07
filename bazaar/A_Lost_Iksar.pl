@@ -126,6 +126,7 @@ sub EVENT_ITEM {
             }
 
             plugin::NPCTell("Excellent, you have collected all of the items which I require. Going forward, you will be able to access the $stage_desc.");
+            $client->UnlockWaypoint("dreadlands");
             quest::ding();      
             if (!plugin::MultiClassingEnabled()) {
                 plugin::NPCTell("Here are two additional tokens for your companions to also gain access to the $stage_desc");
