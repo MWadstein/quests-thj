@@ -1,5 +1,5 @@
 sub EVENT_DEATH_COMPLETE {
-    plugin::handle_death($npc, $x, $y, $z, $entity_list);
+    plugin::handle_death($npc, $x, $y, $z + 15, $entity_list);
 
     my $killer = $entity_list->GetClientByID($killer_id);   
 
