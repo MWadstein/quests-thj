@@ -369,6 +369,7 @@ sub SetSubflag {
 
             if ($stage eq 'SoV') {
                 $client->KeyRingAdd(20884);
+                $client->UnlockWaypoint("iceclad");
             }
 
             if ($stage eq 'PoP') {     
