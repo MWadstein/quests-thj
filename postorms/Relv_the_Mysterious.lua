@@ -6,8 +6,8 @@
 ----------------------------------------------------------------
 
 -- === Constants ===
-local MEPHIT_FIRE   = 1120001288
-local MEPHIT_SMOKE  = 1120001289
+local MEPHIT_FIRE   = 210098
+local MEPHIT_SMOKE  = 210097 
 local BOSS_ID       = 210245
 local VFX_ID        = 98207
 
@@ -74,7 +74,7 @@ function event_say(e)
     e.self:Say("I have waited patiently for someone to come along to defeat the scourge on the land, and you may just be the one. If you feel you are courageous enough to go forth, please let me know and I will make preparations to assist you through the brush to end whatever suffering the forest is feeling beyond [" .. eq.say_link("courageous") .. "]")
 
   elseif e.message:findi("courageous") then
-    e.self:Say("As I had hoped. I regret that I have only enough strength to send four parties through the brush to the other side, and only one party at a time. When each party is ready to move forth, tell me that you are ready and I will make a clearing for you to go through. Be wary, my magic will only last for three hours before you are pulled back to me, so do whatever you can before that time is up! [" .. eq.say_link("we are ready", false, "you are ready") .. "]")
+    e.self:Say("As I had hoped. I regret that I have only enough strength to send four parties through the brush to the other side, and only one party at a time. When each party is ready to move forth, tell me that you are ready and I will make a clearing for you to go through. Be wary, my magic will only last for three hours before you are pulled back to me, so do whatever you can before that time is up! [" .. eq.say_link('we are ready', false, 'you are ready') .. "]")
 
   elseif e.message:findi("we are ready") then
     e.self:Say("Then I wish you luck...")
