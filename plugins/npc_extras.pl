@@ -39,22 +39,30 @@ sub do_stack_handin_quest {
     if ($total_turned_in <= 0) { return; } # if we didnt actually get any returned valid turn ins, exit early
 
     if(quest::handin({ %{$handin} })) { # did we get any valid handins?
-        my %items_to_summon = ();
+      my %items_to_summon = ();
 
-        # What do we want to say to the player once their handin is completed
-        quest::say($handin_success);
-
-        # determine which items to summon based on the total # of items turned in
-        for (1 .. $total_turned_in) {
-            $items_to_summon{quest::ChooseRandom(@$valid_rewards)} += 1; # Item(s): Spell: Unswerving Hammer (19210), Spell: Heroic Bond (19224), Spell: Sunskin (19420), Spell: Word of Vigor (19206)
+      foreach my $i (0 .. @$handin_success-1) {  # Loop through our success emote/say hash
+        if (@$handin_success[$i] eq "say") { # Is this a say?
+          quest::say(@$handin_success[$i+1]);
         }
-
-        # summon our item(s)
-        foreach my $t (keys %items_to_summon) {
-            quest::summonitem($t, $items_to_summon{$t}); 
+        elsif (@$handin_success[$i] eq "emote") { # Is this an emote
+          quest::emote(@$handin_success[$i+1]);
         }
+      }
 
-        # give our player experience multiplied by the number of items turned in
-        quest::exp($handin_exp * $total_turned_in);  
+      # determine which items to summon based on the total # of items turned in
+      for (1 .. $total_turned_in) {
+          $items_to_summon{quest::ChooseRandom(@$valid_rewards)} += 1; # adds 1 item from our valid rewards array to our map increasing the quantity if it exists already
+      }
+
+      # summon our item(s)
+      foreach my $t (keys %items_to_summon) {
+          quest::summonitem($t, $items_to_summon{$t}); # summons each of the items in our map of items to summon with a quantity
+      }
+
+      # give our player experience multiplied by the number of items turned in
+      if ($handin_exp > 0) {
+        quest::exp($handin_exp * $total_turned_in);
+      }
     }
 }
