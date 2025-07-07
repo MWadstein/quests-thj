@@ -9,7 +9,7 @@ local warder_instance_status	= 0;
 
 function evt_kera_spawn(e)
 	e.self:Shout("Insolent lesser races, in thanks for freeing me from centuries of slumber, I shall grant you a quick death!");
-    eq.get_entity_list():FindDoor(46):ForceOpen(e.self);
+    eq.get_entity_list():FindDoor(46):SetLocation(500, 500, 500);
 	eq.set_next_hp_event(next_event_hp);
 end
 
