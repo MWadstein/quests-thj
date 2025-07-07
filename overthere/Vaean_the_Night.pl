@@ -18,15 +18,28 @@ sub EVENT_SAY {
     return;
   }
 }
+
 sub EVENT_ITEM {
-  if(quest::handin({ 19423 => 1 }) || # Spell: Convergence
-    quest::handin({ 19296 => 1 }) || # Spell: Defoliation
-    quest::handin({ 19294 => 1 }) || # Spell: Splurt
-    quest::handin({ 19299 => 1 })){ # Spell: Thrall of Bones
-      quest::say("Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell.");
-      quest::summonitem(quest::ChooseRandom(19297,19421,19408,19409)); # Item(s): Spell: Minion of Shadows (19297), Spell: Sacrifice (19421), Spell: Scent of Terris (19408), Spell: Shadowbond (19409)
-      quest::exp(1000);
+  # Check for our spell turnins
+  {
+    ## START of setup for this quest turnin
+    # List of valid item IDs that we can accept for turn ins go here
+    my @valid_turnin_items = (19423, 19296, 19294, 19299); #Item(s): Spell: Convergence, Spell: Defoliation, Spell: Splurt, Spell: Thrall of Bones
+    # List of valid item IDs that we can reward the player
+    my @valid_rewards = (19297, 19421, 19408, 19409); # Item(s): Spell: Minion of Shadows (19297), Spell: Sacrifice (19421), Spell: Scent of Terris (19408), Spell: Shadowbond (19409)
+    # Exp for each turned in item
+    my $handin_exp = 1000;
+    # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
+    my @handin_success = ("say", "Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
+    ## END of setup for this quest turnin
+
+    # # Create a hash for quick lookup of valid items
+    my %valid_lookup = map { $_ => 1 } @valid_turnin_items;
+    # # store our item handin variables, this has to be two arrays otherwise the same item in more than one slot is an issue with a hash and keys being unique
+    my @turnin_items = ($item1, $item2, $item3, $item4);
+    my @turnin_stack_size = ($item1_charges, $item2_charges, $item3_charges, $item4_charges);
+
+    plugin::do_stack_handin_quest(\@turnin_items, \@turnin_stack_size, \@valid_turnin_items, \@valid_rewards, $handin_exp, \@handin_success);
   }
 }
-
 #END of FILE Zone:overthere  ID:84166 -- Vaean the Night

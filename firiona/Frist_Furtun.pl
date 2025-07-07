@@ -17,15 +17,26 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-  while(quest::handin({ 19203 => 1 }) || # Death Pact
-    quest::handin({ 19205 => 1 }) || # Upheaval
-    quest::handin({ 19209 => 1 }) || # Yaulp IV
-    quest::handin({ 19212 => 1 }) || # Reckoning
-    quest::handin({ 19233 => 1 })) { # Upheaval
-        quest::say("Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
-        quest::summonitem(quest::ChooseRandom(19210,19224,19420,19206)); # Item(s): Spell: Unswerving Hammer (19210), Spell: Heroic Bond (19224), Spell: Sunskin (19420), Spell: Word of Vigor (19206)
-        quest::exp(1000);
+  # Check for our spell turnins
+  {
+    ## START of setup for this quest turnin
+    # List of valid item IDs that we can accept for turn ins go here
+    my @valid_turnin_items = (19203, 19205, 19209, 19212, 19233); #Item(s): Spell: Death Pact, Spell: Upheaval, Spell: Yaulp IV, Spell: Reckoning, Spell: Upheaval
+    # List of valid item IDs that we can reward the player
+    my @valid_rewards = (19210, 19224, 19420, 19206); # Item(s): Spell: Unswerving Hammer (19210), Spell: Heroic Bond (19224), Spell: Sunskin (19420), Spell: Word of Vigor (19206)
+    # Exp for each turned in item
+    my $handin_exp = 1000;
+    # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
+    my @handin_success = ("say", "Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
+    ## END of setup for this quest turnin
+
+    # # Create a hash for quick lookup of valid items
+    my %valid_lookup = map { $_ => 1 } @valid_turnin_items;
+    # # store our item handin variables, this has to be two arrays otherwise the same item in more than one slot is an issue with a hash and keys being unique
+    my @turnin_items = ($item1, $item2, $item3, $item4);
+    my @turnin_stack_size = ($item1_charges, $item2_charges, $item3_charges, $item4_charges);
+
+    plugin::do_stack_handin_quest(\@turnin_items, \@turnin_stack_size, \@valid_turnin_items, \@valid_rewards, $handin_exp, \@handin_success);
   }
 }
-
 #END of FILE Zone:firiona  ID:84177 -- Frist Furtun

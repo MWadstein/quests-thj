@@ -16,13 +16,13 @@ sub EVENT_ITEM {
   {
     ## START of setup for this quest turnin
     # List of valid item IDs that we can accept for turn ins go here
-    my @valid_turnin_items = (19203, 19205, 19209, 19212, 19233);
+    my @valid_turnin_items = (19203, 19205, 19209, 19212, 19233); #Item(s): Spell: Death Pact, Spell: Upheaval, Spell: Yaulp IV, Spell: Reckoning, Spell: Upheaval
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (19210, 19224, 19420, 19206);
+    my @valid_rewards = (19210, 19224, 19420, 19206); # Item(s): Spell: Unswerving Hammer (19210), Spell: Heroic Bond (19224), Spell: Sunskin (19420), Spell: Word of Vigor (19206)
     # Exp for each turned in item
     my $handin_exp = 1000;
-    # What to say to the player on success for handin
-    my $handin_success = "Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!";
+    # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
+    my @handin_success = ("say", "Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
     ## END of setup for this quest turnin
 
     # # Create a hash for quick lookup of valid items
@@ -31,8 +31,7 @@ sub EVENT_ITEM {
     my @turnin_items = ($item1, $item2, $item3, $item4);
     my @turnin_stack_size = ($item1_charges, $item2_charges, $item3_charges, $item4_charges);
 
-    plugin::do_stack_handin_quest(\@turnin_items, \@turnin_stack_size, \@valid_turnin_items, \@valid_rewards, $handin_exp, $handin_success);
+    plugin::do_stack_handin_quest(\@turnin_items, \@turnin_stack_size, \@valid_turnin_items, \@valid_rewards, $handin_exp, \@handin_success);
   }
 }
-
 #END of FILE Zone:overthere  ID:93103 -- Brinaa_Darkpact 
