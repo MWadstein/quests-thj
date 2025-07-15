@@ -8,9 +8,14 @@ sub EVENT_SPAWN {
 }
 
 sub EVENT_PROXIMITY_SAY {
-  if($text=~/dain/i && !$npc->GetBucket("Kael_Throne")) {
-    quest::spawn2(113440,0,0,1126.4,-840.6,-118.3,125.2); #Doldigun, non-loot version
-    $npc->SetBucket("Kael_Throne", 1, "10m");
+  my $last_spawn = $npc->GetEntityVariable("Doldigun_Spawn");
+  if($last_spawn == "") {
+    $last_spawn = 0;
+  }
+
+  if($text=~/dain/i && time - $last_spawn >= 600) {
+    quest::unique_spawn(113440,0,0,1126.4,-840.6,-118.3,125.2); #Doldigun, non-loot version
+    $npc->SetEntityVariable("Doldigun_Spawn", time);
   }
 }
 
