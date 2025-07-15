@@ -45,7 +45,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM {
   # Handin: Message to Wenglawks
-  if(plugin::check_handin(\%itemcount, 28600 => 1) && ($platinum == 200)){
+  if(quest::handin({28600 => 1, "platinum" => 200})){
     # Key to Cobalt Scar (skyshrine)
     quest::say("Here is the information your employer requested. Now be gone. I have more business to take care of.");
     # Summon: Message to Herald
@@ -76,18 +76,18 @@ sub EVENT_ITEM {
     quest::summonitem(17049); # Item: Wenglawks Manly Purse
   }
   # Handin: ?
-  elsif(plugin::check_handin(\%itemcount, 29068 => 1) && ($platinum >= 100)) {
+  elsif(quest::handin({29068 => 1, "platinum" => 100})) {
     # Quest: ?
     quest::say("Here is the information your employer requested. Now be gone. I have more business to take care of.");
     # Summon: ?
     quest::summonitem(29626); # Item: Dispelling device
   }
   elsif(plugin::check_handin(\%itemcount, 1722 => 1)){ #Helssen's Voucher
-	quest::say("So you are the mercenary I have been hearing about! Not what I expected. Anyway, here is your reward. Carry it well. Also, this noble's seal will prove your loyalty to anyone who is skeptical.");
-	quest::ding();
-	quest::summonitem(1719); # Girdle of Reflection
-	quest::summonitem(1723); # Noble's Seal
-	quest::exp(2000);
+  quest::say("So you are the mercenary I have been hearing about! Not what I expected. Anyway, here is your reward. Carry it well. Also, this noble's seal will prove your loyalty to anyone who is skeptical.");
+  quest::ding();
+  quest::summonitem(1719); # Girdle of Reflection
+  quest::summonitem(1723); # Noble's Seal
+  quest::exp(2000);
   }
   plugin::return_items(\%itemcount);
 }
