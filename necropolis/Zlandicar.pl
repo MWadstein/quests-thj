@@ -1,5 +1,5 @@
 sub EVENT_SAY {
-    if ($faction <= 4) {
+    if ($faction <= 6) {
         if ($text =~ /hail/i) {
             quest::say("Hmm, I have been watching you. You made it further than I thought you would. I will have to work on my defenses in the future. So, what do you seek of me?");
         }
@@ -26,21 +26,25 @@ sub EVENT_SAY {
         quest::say("I didn't know Slime could speak common.  Go back to the sewer before I lose my temper.");
     }
 }
-sub EVENT_TRADE {
-    if ($faction <= 4) {
-        if (plugin::check_handin(\%itemcount, 26010 => 1)) {
+
+sub EVENT_ITEM {
+#    quest::ze(2,"Your faction is $faction");
+    if ($faction <= 6) { #apprensive or better
+#        quest::ze(2,"Your faction was high enough.");
+        if (plugin::check_handin(\%itemcount, 26010, => 1)) {
+#            quest::ze(2,"You handed in the right item.");
+            quest::summonitem(28060);   #JD Tomb Key
             quest::say("Excellent work! Here is your key, go bother that prattling fool Jaled Dar, and leave me be.");
-            $client->Message(15, "You have gained an item.");
-            quest::summonitem(28060);   # Jaled Dars Tomb Key
-            quest::faction(462, 50);    # Chetari
-            quest::faction(464, 500);   # Zlandicar
-            quest::faction(430, -50);   # Claws of Veeshan
-            quest::faction(304, -50);   # Ring of Scale
+            quest::faction(462, 50);    #Positive Chetari
+            quest::faction(464, 500);   #Positive Zlandicar
+            quest::faction(430, -50);   #Negative Claws of Veeshan
+            quest::faction(304, -50);   #Negative Ring of Scale
             quest::exp(250000);
         }
     }
     plugin::return_items(\%itemcount);
 }
+
 sub EVENT_DEATH_COMPLETE {
     plugin::handle_death($npc, $x, $y, $z, $entity_list);
     my $killer = $entity_list->GetClientByID($killer_id);   
