@@ -4,6 +4,11 @@
 # Quest: Blessed Coldain Prayer Shawl (8th shawl)
 # items: 8898
 
+sub EVENT_SPAWN {
+  $npc->SetSpecialAbility($_, 1) for (24, 35);
+  $npc->BuffFadeAll();
+  $npc->WipeHateList();
+}
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
