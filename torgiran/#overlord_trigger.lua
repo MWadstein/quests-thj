@@ -23,7 +23,9 @@ function event_signal(e)
 		if wave_counter == 21 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(226207) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(226206) then
     		eq.unique_spawn(226207,0,0,-1276,1085,-141.62,0);	-- NPC: Taskmaster_Lugald_Brokenskull
       		eq.depop(226072);									-- NPC: #Taskmaster_Luga
-			eq.set_timer("resetcounter", 3 * 1000);
+			if tostring(eq.get_zone_instance_version()) ~= eq.get_rule("Custom:StaticInstanceVersion") then		-- Check if we're in a non-respawning DZ. If so, disable reset timer otherwise allow it to run.
+				eq.set_timer("resetcounter", 3 * 1000);
+			end
    		end
 	end
 end
