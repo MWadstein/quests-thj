@@ -17,6 +17,16 @@ sub CommonCharacterUpdate {
         plugin::GrantClassesAA($client);
         plugin::GrantGeneralAA($client);
 
+        if (plugin::is_stage_complete($client, 'RoK')) {
+            $client->UnlockWaypoint("dreadlands");
+            $client->UnlockWaypoint("fieldofbone");
+        }
+
+        if (plugin::is_stage_complete($client, 'SoV')) {
+            $client->UnlockWaypoint("iceclad");
+            $client->UnlockWaypoint("fieldofbone");
+        }
+
         if (!$client->KeyRingCheck(22198) && plugin::is_stage_complete_2($client, 'PoP')) {
             $client->KeyRingAdd(22198);
         }
