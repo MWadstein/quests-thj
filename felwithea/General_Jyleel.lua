@@ -23,7 +23,7 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.other);
 	if(item_lib.check_turn_in(e.trade, {item1 = 13225})) then
 		e.self:Say("Very fine work. A pity you are not Koada'Vie. Here is a small reward for you. Anytime you come upon an oracle. remember to return its scroll to me. Go and find your fate on the field of battle.");
-		e.other:SummonItem(eq.ChooseRandom(15200, 15042, 15226, 13360, 15246, 15276)); -- low level spell or Rotted Illegible Scroll
+		e.other:SummonItem(eq.ChooseRandom(15200, 15042, 15226, 15246, 15276)); -- low level spell
 		e.other:Ding();
 		e.other:Faction(226,5,0); -- Clerics of Tunare
 		e.other:Faction(279,5,0); -- King Tearis Thex

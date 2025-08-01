@@ -24,7 +24,7 @@ sub EVENT_ITEM {
 	if (plugin::check_handin(\%itemcount, 13225=> 1)) {
 		quest::say("Very fine work. A pity you are not Koada'Vie. Here is a small reward for you. Anytime you come upon an oracle. remember to return its scroll to me. Go and find your fate on the field of battle.");
 		#:: Randomly choose Spell: Minor Healing, Spell: Invisibility, Spell: Endure Disease, Rotted Illegible Scroll, Spell: Lesser Shielding, Spell: Serpent Sight
-		quest::summonitem(quest::ChooseRandom(15200, 15042, 15226, 13360, 15246, 15276));
+		quest::summonitem(quest::ChooseRandom(15200, 15042, 15226, 15246, 15276));
 		#:: Give a little xp
 		quest::exp(500);
 		#:: Ding!
