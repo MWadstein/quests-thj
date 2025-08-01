@@ -9,6 +9,8 @@ function event_say(e)
 		elseif(e.message:findi("see stanos") and level >= 50) then
 			e.self:Say("This better be important.");
 			eq.spawn2(5088,0,0,336,10,45,450); -- NPC: Stanos_Herkanor
+		elseif(e.message:findi("see stanos") and level <= 49) then
+			e.self:Say("Get lost. Stanos is a busy man, and you look like you could barely handle a Shralock orc.")
 		end
 	else
 		e.self:Say("Go away! We don't have time for the likes of you.");
