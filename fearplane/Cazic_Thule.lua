@@ -8,7 +8,7 @@ function event_spawn(e)
 end
 
 function event_say(e)
-	if(e.message:findi("gandan has failed in his task")) then
+	if(e.message:findi("failed in his task")) then
 		e.self:Emote("'s thoughts begin to pervade your own, they creep into your mind with great force. You feel pressure as if your head will explode. You see his thoughts becoming your own. You see in these visions a tome bound in flesh dropped to the ground. You then open your eyes to see that same book, and take it knowing that it was meant for you.");
 		e.other:SummonItem(18898); -- Item: Flayed Skin Tome
 	end
