@@ -1,7 +1,8 @@
 # items: 20605, 20606
 sub EVENT_SAY {
   if ($text=~/hail/i) {
-    quest::emote("groans in extreme anguish. '[Help] me.'");
+    quest::emote("groans in extreme anguish.");
+    quest::say("[Help] me.");
   }
   if ($text=~/help/i) {
     quest::say("My resting grounds have been desecrated. I now lie awake unable to rest with my fellow brethren. My soul is bound to this area for all of eternity. Until my [belongings] are brought back I cannot rest.");
@@ -15,12 +16,12 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-  if (plugin::check_handin(\%itemcount,  20605 => 1, 20606 => 1)) {
-    quest::say("A Wandering Spirit quickly grabs the amulet and crescent symbol before speaking. 'At long last! I can now rest in peace along with my fellow brethren. Thank you $name. May the might of Marr follow you wherever you may go.");
+  if (quest::handin({ 20605 => 1, 20606 => 1})) { # 20605: Crescent Symbol of Rhaj, 20606: Crescent Symbol of Rhaj
+    quest::emote("quickly grabs the amulet and crescent symbol before speaking.");
+    quest::say("At long last! I can now rest in peace along with my fellow brethren. Thank you $name. May the might of Marr follow you wherever you may go.");
     quest::exp(120000);
     quest::ding();
-    quest::spawn(208177,0,0,$x,$y,$z); #A Wandering Spirit
+    quest::spawn(208177,0,0,$x,$y,$z); # A Wandering Spirit
     quest::depop_withtimer();
   }
-  plugin::return_items(\%itemcount);
 }
