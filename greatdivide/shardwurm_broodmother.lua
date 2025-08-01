@@ -27,11 +27,19 @@ function event_waypoint_arrive(e)
 	end
 end
 
--- if Player enter the proximity then spawns the 2 giants and clear proximity.
-function event_enter(e)
+function spawn_giants()
 	eq.spawn2(118207,0,0,-2397,-2615,294,0); -- NPC: #Fergul_Frostsky
 	eq.spawn2(118208,0,0,-2391,-2569,299,0); -- NPC: #Gralk_Dwarfkiller
 	eq.clear_proximity();
+end
+
+function event_enter(e)
+	spawn_giants();
+end
+
+--The player might have already been in proximity when we enabled it
+function event_exit(e)
+	spawn_giants();
 end
 
 function event_signal(e)
