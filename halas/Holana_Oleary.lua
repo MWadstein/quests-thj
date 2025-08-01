@@ -58,7 +58,7 @@ function event_trade(e)
 		elseif(rewardr < 7) then
 			e.other:SummonItem(eq.ChooseRandom(2031,2036,2030,2034,2027,2038,2026,2029,2025,2032,2028,2033));	-- Complete Set of Large Leather Items
 		elseif(rewardr < 10) then
-			e.other:SummonItem(eq.ChooseRandom(5043,6032,6030,7022,7024,94155,6031));							-- All SHM usable tarnished weaponry
+			e.other:SummonItem(eq.ChooseRandom(5043,6032,6030,7022,7024,6031));							-- All SHM usable tarnished weaponry
 		else
 			e.other:SummonItem(2912); 																			-- Polar Bear Cloak
 		end
