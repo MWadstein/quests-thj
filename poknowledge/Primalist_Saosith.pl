@@ -60,7 +60,7 @@ sub EVENT_ITEM {
     # List of valid item IDs that we can accept for turn ins go here
     my @valid_turnin_items = (29132);
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (28549, 28550, 21630, 28551, 28552, 59652); #Level 63 or 64 Beastlord spell, PoP (Arag's Celerity, Spirit of Rellic, Frost Spear, Spiritual Dominion, Spirit of Sorsha)
+    my @valid_rewards = (28553, 28554); #Level 65 Beastlord spell, PoP (Sha's Revenge, Ferocity)
     # Exp for each turned in item
     my $handin_exp = 0;
     # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
