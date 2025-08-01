@@ -45,7 +45,7 @@ function event_trade(e)
 		e.other:Faction(261,-15,0);	-- Green Blood Knights
 		e.other:Faction(222,-25,0);	-- Broken Skull Clan
 		e.other:Faction(235,5,0);	-- Da Bashers
-		e.other:AddEXP(30);
+		e.other:AddEXP(100);
 	elseif (pfaction > 4) then
 		e.self:Say("You no friend to Hukulk");	
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 13073, item2 = 13073, item3 = 13073, item4 = 13073})) then -- Bone Chips
@@ -55,8 +55,8 @@ function event_trade(e)
 		e.other:Faction(308,5,0);	-- Shadowknights of Night Keep
 		e.other:Faction(261,-1,0);	-- Green Blood Knights
 		e.other:Faction(222,-1,0);	-- Broken Skull Clan
-		e.other:Faction(235,-1,0);	-- Da Bashers
-		e.other:AddEXP(250);
+		e.other:Faction(235,1,0);	-- Da Bashers
+		e.other:AddEXP(100);
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 12201, item2 = 12202})) then -- Happy Love Bracers and Troll Head(Lumpin)
 		e.self:Say("Ha!! Ha!! Who have last laugh now!! You do good werk.  Now me give you extra helm of Hukulk. Now go away!!");
 		e.other:SummonItem(3316);	-- Helm of Hukulk
