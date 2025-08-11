@@ -12,8 +12,8 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 17859,item2 = 10908})) then -- Red Scabbard (Old), Jagged Blade of War (Old)
 		e.self:Emote("begins to furiously work the metal. Sparks fly and a faint magical aura seems to surround the immediate area. 'Ah, a fine job! Your new weapons, "..e.other:GetName().."! Good luck on your travels and if you find any of the augmentation stones, you can now use them to make these fine weapons ever finer!'");
-		e.other:SummonItem(66175); -- Jagged Blade of War (New)
-		e.other:SummonItem(17869); -- Red Scabbard (New)
+		e.other:SummonFixedItem(2066175); -- Jagged Blade of War (New)
+		e.other:SummonFixedItem(17869); -- Red Scabbard (New)
 		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
