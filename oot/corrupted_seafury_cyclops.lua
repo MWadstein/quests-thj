@@ -15,3 +15,8 @@ function event_combat(e)
         eq.stop_timer("Leash");
     end
 end
+
+function event_spawn(e)
+	eq.set_timer("Leash", 60 * 1000);
+
+end
