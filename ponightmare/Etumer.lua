@@ -19,6 +19,7 @@ end
 function MoveGroup(client, src_x, src_y, src_z, distance, tgt_x, tgt_y, tgt_z, tgt_h)
 	local clients_to_move = {};
 
+	local instance_id = eq.get_zone_instance_id();
 	local trial_group = client:GetGroup()
 	if trial_group ~= nil then
 		local trial_count = trial_group:GroupCount();
@@ -39,7 +40,7 @@ function MoveGroup(client, src_x, src_y, src_z, distance, tgt_x, tgt_y, tgt_z, t
 			-- check the distance and port them up if close enough
 			if (client_v:CalculateDistance(src_x, src_y, src_z) <= distance) then
 				-- port the player up
-				client_v:MovePC(204, tgt_x, tgt_y, tgt_z, tgt_h); -- Zone: ponightmare
+				client_v:MovePCInstance(204, instance_id, tgt_x, tgt_y, tgt_z, tgt_h); -- Zone: ponightmare
 			end
 		end
 	end
