@@ -18,7 +18,7 @@ function event_say(e)
 				)
 			end
 		elseif e.message:findi("problem") then
-			e.self:Say("Askr gestures toward the cave exit. 'Can't you see the monsters outside, pillaging at will? If you want to help, bring me one of their heads. Until then, I'm doomed with my *hic* potions.'")
+			e.self:Emote(gestures toward the cave exit. 'Can't you see the monsters outside, pillaging at will? If you want to help, bring me one of their heads. Until then, I'm doomed with my *hic* potions.'")
 		elseif e.message:findi("yes") then
 			local askr_bucket = tonumber(e.other:GetAccountBucket("pop.flags.askr")) or 0
 			local continue_link = eq.silent_say_link("continue")
