@@ -27,7 +27,7 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-  if (plugin::check_handin(\%itemcount, 19959 => 1, 19959 => 1, 19961 => 1)) {
+  if (plugin::check_handin(\%itemcount, 19959 => 1, 19960 => 1, 19961 => 1)) { # 3 Piece of a medallion, Bottom, Middle, and Top
     quest::emote("tinkers with the three pieces and snaps the pieces together. 'Wow.. You've done it.. but I suddenly feel very.. strange.. This medallion is cursed! Here, you take it!'");
     quest::summonitem(19954); # Item: Medallion of the Jarsath
     quest::exp(100);
