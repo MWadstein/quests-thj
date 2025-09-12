@@ -16,7 +16,7 @@ sub EVENT_ITEM {
     quest::emote("eyes open wide and he attacks you!");
     quest::summonitem(1683); #Celestial Fists
     quest::attack($name);
-    quest::spawn(95183,0,0,2470,306,-339); #Kaiaren (True)
+    quest::unique_spawn(95183,0,0,2470,306,-339); #Kaiaren (True)
     return;
   }
   elsif(($ulevel >= 46) && (plugin::check_handin(\%itemcount, 1684 => 1))) { #Charred Scale
