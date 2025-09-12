@@ -5,7 +5,7 @@ sub EVENT_SLAY {
 }
 
 sub EVENT_DEATH_COMPLETE {
-    plugin::handle_death($npc, $x, $y, $z, $entity_list);
+    plugin::handle_death($npc, 256, 193, 252, $entity_list);
 }
 
 sub EVENT_KILLED_MERIT {
