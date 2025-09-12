@@ -16,7 +16,7 @@ sub EVENT_ITEM {
     # List of valid item IDs that we can accept for turn ins go here
     my @valid_turnin_items = (29112);
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (28426, 21638, 21640, 28413, 28417, 26946, 28418, 28419); #Level 61 or 62 Necromancer spell, PoP (Touch of Mujaki, Neurotoxin, Shield of the Arcane, Legacy of Zek, Petrifying Earth, Rune of Death, Saryrn's Kiss)
+    my @valid_rewards = (28426, 21638, 21640, 28413, 28417, 26946, 28418, 28419, 26945); #Level 61 or 62 Necromancer spell, PoP (Touch of Mujaki, Neurotoxin, Shield of the Arcane, Legacy of Zek, Petrifying Earth, Rune of Death, Saryrn's Kiss, Greater Immobilize - given here due to other class access)
     # Exp for each turned in item
     my $handin_exp = 0;  
     # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
@@ -38,7 +38,7 @@ sub EVENT_ITEM {
     # List of valid item IDs that we can accept for turn ins go here
     my @valid_turnin_items = (29131);
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (59621, 26945, 28414, 28420, 28421, 28422, 28415, 28423, 28424, 28559, 59618); #Level 63 or 64 Necromancer spell, PoP (Greater Immobilize, Force Shield, Death's Silence, Embracing Darkness, Saryrn's Companion, Shield of Maelin, Seduction of Saryrn, Touch of Death, Destroy Undead)
+    my @valid_rewards = (59621, 28414, 28420, 28421, 28422, 28415, 28423, 28424, 28559, 59618); #Level 63 or 64 Necromancer spell, PoP (Force Shield, Death's Silence, Embracing Darkness, Saryrn's Companion, Shield of Maelin, Seduction of Saryrn, Touch of Death, Destroy Undead)
     # Exp for each turned in item
     my $handin_exp = 0;
     # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")

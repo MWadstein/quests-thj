@@ -15,7 +15,7 @@ sub EVENT_ITEM {
     # List of valid item IDs that we can accept for turn ins go here
     my @valid_turnin_items = (29112);
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (26943, 28524, 28525, 28526, 28564, 21656, 28527, 28528, 28529, 28530); #Level 61 or 62 Druid spell, PoP (Earthen Roots, Storm's Fury, Hand of Ro, Winter's Storm, Catastrophe, Flight of Eagles, Immolation of Ro, Karana's Rage, Nature's Might, Ro's Illumination)
+    my @valid_rewards = (26943, 28524, 28525, 28526, 28564, 21656, 28527, 28528, 28529, 28530, 28523, 59990); #Level 61 or 62 Druid spell, PoP (Earthen Roots, Storm's Fury, Hand of Ro, Winter's Storm, Catastrophe, Flight of Eagles, Immolation of Ro, Karana's Rage, Nature's Might, Ro's Illumination, Replenishment, Entangle)
     # Exp for each turned in item
     my $handin_exp = 0;  
     # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
