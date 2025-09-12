@@ -47,5 +47,8 @@ function event_click_door(e)
 				e.self:Message(MT.Red, "You are currently locked out, try again once your lockout is over.")
 			end
 		end
+	elseif door_id == 1 then
+		e.self:Message(MT.Yellow, "You step through time in to a conflux of ages.")
+		e.self:MovePC(Zone.potimea, 223, 140, 9, 94)
 	end
 end

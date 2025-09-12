@@ -13,7 +13,7 @@ function event_click_door(e)
 			e.self:SetZoneFlag(Zone.potimeb)
 			e.self:Message(MT.LightBlue, "You receive a character flag!")
 			e.self:Message(MT.Yellow, "The ages begin to tear through your body. You wake to find yourself in another time.")
-			e.self:MovePC(Zone.potimea, 223, 140, 9, 94)
+			e.self:MovePC(Zone.potimea, 130, 0, 182, 383)
 		end
 	end
 end
