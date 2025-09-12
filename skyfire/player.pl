@@ -39,7 +39,7 @@ sub EVENT_CLICKDOOR {
           if(plugin::check_hasitem($client, 20884) && !$client->KeyRingCheck(20884)) {
               $client->KeyRingAdd(20884);
           }
-          if($client->KeyRingCheck(20884) || ($status > 99)) {
+          if($client->KeyRingCheck(20884) || ($status >= 50)) {
               quest::movepc(108,1682,41,25.9); # Zone: veeshan
           }
           else {
