@@ -16,7 +16,7 @@ sub EVENT_ITEM {
     # List of valid item IDs that we can accept for turn ins go here
     my @valid_turnin_items = (29112);
     # List of valid item IDs that we can reward the player
-    my @valid_rewards = (26943, 21628, 21627, 59990); #Level 61 or 62 Ranger spell, PoP (Earthen Roots, Call of the Rathe, Strength of Tunare, Entangle)
+    my @valid_rewards = (26943, 21628, 21627); #Level 61 or 62 Ranger spell, PoP (Earthen Roots, Call of the Rathe, Strength of Tunare)
     # Exp for each turned in item
     my $handin_exp = 0;  
     # What to do when there is a success on the handin, an array with the pattern of ("say" or "emote", "what to say or emote")
